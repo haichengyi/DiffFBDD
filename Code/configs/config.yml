@@ -1,0 +1,48 @@
+run_name: 'myself_run_pocket_change_1000'
+logdir: '/home/linux/PycharmProjects/log/'
+
+dataset: 'crossdock'
+datadir: '/home/linux/PycharmProjects/cross_data/processed_crossdock_noH_ca_full_temp'
+enable_progress_bar: True
+num_sanity_val_steps: 0
+
+mode: 'pocket_conditioning'
+batch_size: 16
+lr: 1.0e-4
+n_epochs: 1000
+num_workers: 16
+gpus: 1
+clip_grad: True
+augment_rotation: False
+augment_noise: 0
+
+egnn_params:
+  device: 'cuda'
+  edge_cutoff: null
+  joint_nf: 16
+  hidden_nf: 64
+  n_layers: 6
+  attention: True
+  tanh: True
+  norm_constant: 1
+  inv_sublayers: 1
+  sin_embedding: False
+  aggregation_method: 'sum'
+  normalization_factor: 100  # used if aggregation_method='sum'
+
+diffusion_params:
+  diffusion_steps: 500
+  diffusion_noise_schedule: 'cosine'  #polynomial_2 learned, cosine--这些都属于加噪方式/本次实验主要就可学习的进行分析
+  diffusion_noise_precision: 1.0e-5
+  diffusion_loss_type: 'l2'  # vlb, l2
+  normalize_factors: [1, 4]  # [x, h]
+
+eval_epochs: 50
+visualize_sample_epoch: 20
+visualize_chain_epoch: 20
+eval_params:
+  n_eval_samples: 100
+  eval_batch_size: 100
+  smiles_file: '/home/linux/PycharmProjects/cross_data/processed_crossdock_noH_ca_full_temp/train_smiles.npy'
+  n_visualize_samples: 5
+  keep_frames: 100
