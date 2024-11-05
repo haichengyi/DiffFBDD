@@ -64,3 +64,17 @@ conda activate diff-fbdd
 python analysis/docking.py --pdbqt_dir <docking_py27_outdir> --sdf_dir <test_outdir> --out_dir <qvina_outdir> --write_csv --write_dict
 ```
 
+### Citation
+Please cite this work as below：
+```
+@ARTICLE{DiffFBDD,
+  author={Zheng, Jia and Yi, Hai-Cheng and You, Zhu-Hong},
+  journal={IEEE Journal of Biomedical and Health Informatics}, 
+  title={Equivariant 3D-Conditional Diffusion Model for De Novo Drug Design}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-13},
+  keywords={Atoms;Proteins;Drugs;Three-dimensional displays;Chemicals;Bioinformatics;Diffusion models;Graph neural networks;Point cloud compression;Drug discovery;Artificial intelligence;drug discovery;equivariant diffusion model;fragment-based drug design;molecular generation},
+  doi={10.1109/JBHI.2024.3491318}}
+```
