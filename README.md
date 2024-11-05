@@ -1,10 +1,15 @@
-### Create a conda environment
+### Equivariant 3D-Conditional Diffusion Model for <i>De Novo</i> Drug Design
+
+De novo drug design speeds up drug discovery, mitigating its time and cost burdens with advanced computational methods. Previous work either insufficiently utilized the 3D geometric structure of the target proteins, or generated ligands in an order that was inconsistent with real physics. Here we propose an equivariant 3D-conditional diffusion model, named DiffFBDD, for generating new pharmaceutical compounds based on 3D geometric information of specific target protein pockets. DiffFBDD overcomes the underutilization of geometric information by integrating full atomic information of pockets to backbone atoms using an equivariant graph neural network. Moreover, we develop a diffusion approach to generate drugs by generating ligand fragments for specific protein pockets, which requires fewer computational resources and less generation time (65.98% ∼ 96.10% lower). DiffFBDD offers better performance than state-of-the-art models in generating ligands with strong binding affinity to specific protein pockets, while maintaining high validity, uniqueness, and novelty, with clear potential for exploring the drug-like chemical space.
+
+### Usage
+#### Create a conda environment
 
 ```
 conda env create -f environment.yml
 ```
 
-##### QuickVina2
+#### QuickVina2
 
 For docking, install QuickVina 2:
 
@@ -19,7 +24,7 @@ MGLTools for preparing the receptor for docking (pdb -> pdbqt)
 conda create -n mgltools -c bioconda mgltools
 ```
 
-### Training
+#### Training
 
 Starting a new training run:
 
@@ -33,13 +38,13 @@ Resuming a previous run:
 python -u train.py --config <config>.yml --resume <checkpoint>.ckpt
 ```
 
-### Test
+#### Test
 
 ```
 python test.py <checkpoint>.ckpt --test_dir <output_dir> --outdir <output_dir>
 ```
 
-### Metrics
+#### Metrics
 
 Under the Metrics folder, verify SA, QED, Div, Time, LogP, Lipinski
 
